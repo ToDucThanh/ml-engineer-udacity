@@ -3,10 +3,10 @@
 
 ## Initial Training
 ### What did you realize when you tried to submit your predictions? What changes were needed to the output of the predictor to submit your results?
-My first submission got value of 1.79756, which is quite bad at Kaggle leaderboard. I thought more work to do to improve this score.
+My first submission got value of 1.79756, which is quite bad at Kaggle leaderboard. I thought more work to do to improve this score. One thing that this competition required was the predictions could not be negative, so every negative values must be set to 0.
 
 ### What was the top ranked model that performed?
-The top ranked model used default hyperparameters, removed a feature, added some features and converted data type. Its score was 0.53666.
+The top ranked model used default hyperparameters, removed a feature, added some features and converted data type. Its score was 0.53666 RMSE with Weighted Ensemble method.
 
 ## Exploratory data analysis and feature creation
 ### What did the exploratory analysis find and how did you add additional features?
