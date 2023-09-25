@@ -8,7 +8,7 @@ My first submission got value of 1.79756, which is quite bad at Kaggle leaderboa
 ### What was the top ranked model that performed?
 The top ranked model used default hyperparameters, removed a feature, added some features and converted data type. Its score was 0.53666 RMSE with Weighted Ensemble method.
 
-## Exploratory data analysis and feature creation
+## Exploratory data analysis and feature creation :mag_right:
 ### What did the exploratory analysis find and how did you add additional features?
 EDA found some features needed type conversion (from numeric type to category type) and datetime feature should be parsed and splitted into month, day and hour feature. The model that removed original datetime column also had better result.
 
