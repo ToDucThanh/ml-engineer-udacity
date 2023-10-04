@@ -28,7 +28,7 @@ The dataset I chose is **CoLA (Corpus of Linguistic Acceptability)** dataset, wh
 Let's explore this dataset &rarr; [Explore](notebooks/explore_data.ipynb) :mag_right:
 
 ## Base model
-My idea is to use a simple and familiar architecture to attack this task. I chose **distill-bert-cased** tokenizer and classification model from Hugging Face library:
+My idea is to use a simple and familiar architecture to attack this task. I chose **distill-bert-uncased** tokenizer and classification model from Hugging Face library:
 ```python
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
@@ -37,7 +37,7 @@ tokenizer = AutoTokenizer.from_pretrained(name)
 model = AutoModelForSequenceClassification.from_pretrained(name, num_labels=2)
 
 ```
-Step-by-step to build and train base model: [Base-model](docs/base-model.md) :books:
+Step-by-step to build and train base model: [Base-model](docs/base-model-experiment.md) :books:
 
 ## Hyperparmeter tuning
 I tuned three hyperparameters:
