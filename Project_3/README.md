@@ -101,9 +101,9 @@ debugger_config = DebuggerHookConfig(
 The scipt for this notebook: [train_model.py](src/train_model.py)
 ### Result
 
-![Training process](../assets/cloudwatch_training.png)
-![Loss](../assets/plot_loss.png)
-![System metric](../assets/system.png)
+![Training process](assets/cloudwatch_training.png)
+![Loss](assets/plot_loss.png)
+![System metric](assets/system.png)
 
 SageMaker also generated the Profiler Report in HTML format: [Report](docs/profile-report.html) :page_facing_up:
 
