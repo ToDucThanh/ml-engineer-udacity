@@ -101,4 +101,5 @@ class GrammarModel(pl.LightningModule):
 ![Matthews Correlation Coeffcient](../assets/MCC.png)
 
 [Notebook](../notebooks/base_model_experiment.ipynb)
+
 More about Matthews Correlation Coefficient: [MCC](https://encyclopedia.pub/entry/35211)
