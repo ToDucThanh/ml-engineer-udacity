@@ -1,0 +1,6 @@
+datasets 
+transformers>=4.19.1 
+tensorboard
+pytorch_lightning>=1.6.5
+smdebug
+nvgpu
