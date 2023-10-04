@@ -61,7 +61,7 @@ def tokenize_sentence(self, batch):
 
 	return outputs
 ```
-Initially, I intended to tune 4 jobs; however, the process has consumed a significant amount of time and utilized GPU resources, resulting in substantial costs. I decided to tune only 2 jobs. The [hyperparameter_tuning.ipynb](notebooks/hyperparameter_tuning.ipynb) notebook used [model_hpo.py](model_hpo.py) script. The objective metric is Average Validation Loss.
+Initially, I intended to tune 4 jobs; however, the process has consumed a significant amount of time and utilized GPU resources, resulting in substantial costs. I decided to tune only 2 jobs. The [hyperparameter_tuning.ipynb](notebooks/hyperparameter_tuning.ipynb) notebook used [model_hpo.py](src/model_hpo.py) script. The objective metric is Average Validation Loss.
 
 ![Tuning-jobs](assets/tuning_jobs.png)
 
