@@ -105,7 +105,7 @@ The scipt for this notebook: [train_model.py](src/train_model.py)
 <img src="assets/plot_loss.png" width="607" height="449">
 <img src="assets/system.png" width="899" height="597">
 
-SageMaker also generated the Profiler Report in HTML format: [Report](docs/profile-report.html) :page_facing_up:
+SageMaker also generated the Profiler Report in HTML format: [Report](docs/profiler-report.html) :page_facing_up:
 
 ## Model Deployment
 We need to create an [inference.py](src/inference.py) script for deployment step. The [train_and_deploy.ipynb](notebooks/train_and_deploy.ipynb) notebook used this script to deploy an endpoint. For this endpoint, I employed the **ml.g4dn.xlarge** instance to leverage GPU capabilities.
