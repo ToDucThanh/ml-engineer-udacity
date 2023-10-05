@@ -98,7 +98,7 @@ debugger_config = DebuggerHookConfig(
     hook_parameters={"train.save_interval": "100", "eval.save_interval": "10"}
 )
 ```
-The scipt for this notebook: [train_model.py](src/train.py)
+The scipt for this notebook: [train.py](src/train.py)
 ### Result
 
 <img src="assets/cloudwatch_training.png" width="939" height="516">
