@@ -9,8 +9,8 @@ There are two main folders: `src` and `notebooks`. `src` contains python scripts
 │
 ├── src
 │   ├── requirements.txt
-│   ├── model_hpo.py
-│   ├── core.py
+│   ├── hpo.py
+│   ├── train.py
 │   ├── net.py
 │   ├── ...
 │   ├── ...
@@ -18,7 +18,7 @@ There are two main folders: `src` and `notebooks`. `src` contains python scripts
 │   ├── download_and_upload_data_to_S3.ipynb
 │   ├── explore_data.ipynb
 │   ├── base_model_experiment.ipynb
-│   ├── ...
+│   ├── train_and_deploy.ipynb
 │   ├── ...
 │
 ```
@@ -61,7 +61,7 @@ def tokenize_sentence(self, batch):
 
 	return outputs
 ```
-Initially, I intended to tune 4 jobs; however, the process has consumed a significant amount of time and utilized GPU resources, resulting in substantial costs. I decided to tune only 2 jobs. The [hyperparameter_tuning.ipynb](notebooks/hyperparameter_tuning.ipynb) notebook used [model_hpo.py](src/model_hpo.py) script. The objective metric is Average Validation Loss.
+Initially, I intended to tune 4 jobs; however, the process has consumed a significant amount of time and utilized GPU resources, resulting in substantial costs. I decided to tune only 2 jobs. The [hyperparameter_tuning.ipynb](notebooks/hyperparameter_tuning.ipynb) notebook used [hpo.py](src/hpo.py) script. The objective metric is Average Validation Loss.
 
 ![Tuning-jobs](assets/tuning_jobs.png)
 
@@ -98,7 +98,7 @@ debugger_config = DebuggerHookConfig(
     hook_parameters={"train.save_interval": "100", "eval.save_interval": "10"}
 )
 ```
-The scipt for this notebook: [train_model.py](src/train_model.py)
+The scipt for this notebook: [train_model.py](src/train.py)
 ### Result
 
 <img src="assets/cloudwatch_training.png" width="939" height="516">
