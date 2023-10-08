@@ -83,6 +83,10 @@ class GrammarClassification:
         if self.hook is not None:
             self.hook.set_mode(modes.TRAIN)
             
+        running_loss = 0.0
+        running_corrects = 0.0
+        running_samples = 0
+        
         for batch_idx, batch in enumerate(train_loader):
             input_ids, attention_mask, labels = batch["input_ids"], batch["attention_mask"], batch["label"]
             input_ids = input_ids.to(device)
@@ -95,11 +99,23 @@ class GrammarClassification:
             loss = self.loss_fn(logits.view(-1, self.num_classes), labels)
             loss.backward()
             self.optimizer.step()
+            
+            _, preds = torch.max(logits, 1)
+            running_loss += float(loss.item() * len(input_ids))
+            running_corrects += float(torch.sum(preds == labels.data))
+            running_samples += len(input_ids)
+            accuracy = float(running_corrects)/float(running_samples) * 100
+            
             print(
-                "Train set: Epoch: {} [({:.0f}%)]\tLoss: {:.4f}".format(
+                "Train set: Epoch: {} [({:.0f}%)]\tLoss: {:.4f}\tAccuracy: {:.2f}%\n \
+                Hyperparameters: Learning rate: {}, Batch size: {}, Epsilon: {}".format(
                     epoch,
                     100.0 * batch_idx / len(train_loader),
                     loss.item(),
+                    accuracy,
+                    self.lr, 
+                    self.batch_size,
+                    self.eps
                 )
             )
             

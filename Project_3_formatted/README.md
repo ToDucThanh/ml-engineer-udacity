@@ -113,7 +113,7 @@ debugger_config = DebuggerHookConfig(
 ```
 The notebook `train_and_deploy.ipynb` used script [train_model.py](src/train_model.py) for model training, debuging and profiling.
 ### Result
-![Training process](assets/training_process.png)
+![Training process](assets/training_process2.png)
 ![Loss](assets/cross_entropy_loss.png)
 The training loss decreased and the validation loss had the tendency to increase. The model is overfit!
 

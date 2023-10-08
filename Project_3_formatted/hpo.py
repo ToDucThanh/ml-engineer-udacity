@@ -95,13 +95,23 @@ class GrammarClassification:
             loss = self.loss_fn(logits.view(-1, self.num_classes), labels)
             loss.backward()
             self.optimizer.step()
+            
+            _, preds = torch.max(logits, 1)
+            running_loss += float(loss.item() * len(input_ids))
+            running_corrects += float(torch.sum(preds == labels.data))
+            running_samples += len(input_ids)
+            accuracy = float(running_corrects)/float(running_samples) * 100
+            
             print(
-                "Train set: Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.4f}".format(
+                "Train set: Epoch: {} [({:.0f}%)]\tLoss: {:.4f}\tAccuracy: {:.2f}%\n \
+                Hyperparameters: Learning rate: {}, Batch size: {}, Epsilon: {}".format(
                     epoch,
-                    batch_idx * len(batch),
-                    len(train_loader.dataset),
                     100.0 * batch_idx / len(train_loader),
                     loss.item(),
+                    accuracy,
+                    self.lr, 
+                    self.batch_size,
+                    self.eps
                 )
             )
             
