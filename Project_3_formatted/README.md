@@ -45,7 +45,9 @@ objective_type = "Minimize"
 metric_definitions = [{"Name": "Average Validation Loss", "Regex": "Validation set: Average loss: ([0-9\\.]+)"}]
 ```
 `Learning rate` with a range of 2e-5 to 2e-4 and type of continuous (ContinuousParameter)
+
 `Batch size` with a range of 32, 64 and type of categorical (CategoricalParameter)
+
 `Max length` with a range of 128, 256 is and a hyperparameter of the tokenizer:
 ```python
 def tokenize_sentence(self, batch):
@@ -77,7 +79,7 @@ I trained the model with the best hyperparamters above. This is all hyperparamte
 "eps": 1e-8
 "max-length": 256
 ```
-There are multiple rules for debugger and profiller:
+There are multiple rules for debugger and profiler:
 ```python
 rules = [
     Rule.sagemaker(rule_configs.loss_not_decreasing()),
@@ -115,7 +117,7 @@ The notebook `train_and_deploy.ipynb` used script [train_model.py](src/train_mod
 ![Loss](assets/cross_entropy_loss.png)
 The training loss decreased and the validation loss had the tendency to increase. The model is overfit!
 
-SageMaker also generated the Profiler Report in HTML format: [Report](/profile-report.html) :page_facing_up:
+SageMaker also generated the Profiler Report in HTML format: [Report](/profiler-report.html) :page_facing_up:
 
 ## Model Deployment
 The notebook `train_and_deploy.ipynb` used script [inference.py](src/inference.py) for model deploying.
@@ -180,7 +182,7 @@ def output_fn(predictions, content_type):
     raise Exception("Requested unsupported ContentType in Accept: " + content_type)
 ```
 ### Endpoint
-![Endpoint](assets/endpoints.png)
+![Endpoint](assets/endpoint.png)
 ### Inference
 ![Inference](assets/inference.png)
 All test samples were predicted correctly
