@@ -47,12 +47,14 @@ The benchmark model is a [Logistic Regression](https://www.kaggle.com/code/jites
 |------------|-----------|
 | Accuracy   | 83.04%    |
 | F1-score   | 86.12%    |
+
 The **Logistic Regression** model mentioned earlier intially achieved an accuracy of approximately 55%. However, when attempting to replicate the author's approach, a significantly improved outcome was achieved, with the accuracy rising from approximately 55% to 83.04%. This led to the establishment of a new benchmark.
 
 For more information, please check `baseModel.ipynb` notebook.
 
 ## Methodology
 - Data preprocessing
+
 I only transformed categorical features into numerical representations using LabelEncoder from Scikit-Learn.
 
 `preprocessing/preprocess_data.py`
@@ -74,6 +76,7 @@ def encode_categorical_features(df: pd.DataFrame, categorical_features: List[str
 ```
 
 - Train/test data splitting
+
 I used Scikit-Learn and utilized a 75% - 25% ratio for the division.
 ```python
 X_train, X_test, y_train, y_test = train_test_split(..., test_size=0.25)
@@ -86,6 +89,7 @@ X_y_test["HeartDisease"] = y_test
 ```
 
 - Model comparing
+
 I utilized Pycaret to find the best algorithm. The objective metric is F1-score.
 ```python
 s = setup(data=X_y_train, 
@@ -101,7 +105,7 @@ best_models = compare_models(cross_validation=False,
 
 ```
 
-![Pycaret models](assets/pycaret-compares.png)
+![Pycaret models](assets/pycaret-compare.png)
 
 - Hyperparameter tuning with Optuna
 ```
@@ -133,6 +137,7 @@ best_models = compare_models(cross_validation=False,
 ![Optuna study](assets/optuna-study.png)
 
 - Feature engineering
+
 I used Random Forest Classifier to asses the importance of individual features.
 
 `feature_engineering/feature_importance.py`
@@ -274,6 +279,8 @@ To run the API, execute the command `python deploy/FastAPI/app.py`. The API will
 Result:
 
 ![fastapi](assets/fastapi.png)
+
+For more information, please check `main.ipynb` notebook.
 
 ## Conclusion
 An extra tree classifier exceeded the performance of the benchmark model and was successfully deployed using two methods: AWS Lambda functions and the FastAPI framework. While the problem was adequately addressed, it is imperative that additional assessments be conducted before deployment in a production environment.
