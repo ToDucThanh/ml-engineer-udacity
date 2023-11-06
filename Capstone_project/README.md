@@ -21,6 +21,7 @@ If your deployment is local and you are using FastAPI framework:
 
 ## Dataset
 This repo used the dataset from [fedesoriano](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction)
+
 First five rows of this dataset:
 ![Head dataset](assets/first-5-rows.png)
 
@@ -98,9 +99,7 @@ s = setup(data=X_y_train,
           categorical_features=categorical_features,
           preprocess=False,
           session_id=125)
-best_models = compare_models(cross_validation=False, 
-							 sort="F1", 
-							 n_select=2)
+best_models = compare_models(cross_validation=False, sort="F1", n_select=2)
 
 
 ```
@@ -239,6 +238,7 @@ Test
 ![test endpoint](assets/test-endpoint.png)
 
 *3. Deploy to AWS Lambda function*
+
 Create `lambda_function.py`
 ```python
 import json
@@ -275,6 +275,7 @@ def lambda_handler(event, context):
 
 Make sure to attach the SageMaker access permission policy to the Lambda function.
 - Deploy locally with FastAPI
+
 To run the API, execute the command `python deploy/FastAPI/app.py`. The API will be accessible at `localhost:8000`.
 Result:
 
